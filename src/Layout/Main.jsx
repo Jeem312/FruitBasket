@@ -7,17 +7,21 @@ import Navbar from '../Shared/Navbar';
 
 const Main = () => {
     return (
-        <div className=" bg-gradient-to-r from-[rgb(42,56,88)] to-[rgb(102,109,132)] h-screen p-14 rounded-lg flex flex-col">
+        <div className=" bg-gradient-to-r from-[rgb(42,56,88)] to-[rgb(102,109,132)] h-screen p-4 md:p-14 rounded-lg flex flex-col">
           
       
             {/* Content with background image */}
             <div
-                className="container mx-auto flex-grow rounded-lg"
+                className="container mx-auto flex-grow rounded-lg bg-opacity-60"
                 style={{
+                  
                     height:'100%',
+                    width:'100%',
                     backgroundImage: `url(${img2})`,
-                    backgroundSize: 'cover',
+                   
                     backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
                 }}
             >
                      <div>
@@ -29,7 +33,7 @@ const Main = () => {
 
             </div>
 
-            {/* Outlet for nested routes */}
+          
            
         </div>
     );
