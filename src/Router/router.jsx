@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import ErrorPage from "../ErrorPage";
 import Home from "../Components/Home";
 import Register from "../Shared/Register";
+import Login from "../Shared/Login";
 
 
 
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
           element:<Home></Home>
         },
         {
-          path:"register",
+          path:"/register",
           element:<Register></Register>
+        },
+        {
+          path: "/login",
+          element:<Login></Login>
         }
       ] }
   ]);
