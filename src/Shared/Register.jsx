@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../Provider/Provider';
+import { FaGoogle } from 'react-icons/fa';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'; // Import Firebase methods
 
 const Register = () => {
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile ,googleLogin} = useContext(AuthContext);
     const navigate = useNavigate();
     const from = "/";
 
@@ -15,6 +17,16 @@ const Register = () => {
         formState: { errors },
         handleSubmit,
     } = useForm();
+
+    // Handle Google login
+    const handleGoogleLogin =() => {
+        googleLogin()
+      
+        toast.success("Google Login Successful");
+        console.log("Logged in user:", user);
+        navigate('/');
+    
+    };
 
     const onSubmit = (data) => {
         const { email, password, Name, image } = data;
@@ -38,11 +50,11 @@ const Register = () => {
 
     return (
         <div className=''>
-            <h1 className='flex justify-center items-center font-bold text-3xl text-white font-title my-4'>
+            <h1 className='flex justify-center items-center font-bold text-3xl text-white font-title '>
                 Register Now
             </h1>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center my-2">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md shadow-2xl border border-base-200 rounded-lg">
                     <div className="w-full p-4">
                         <div className="form-control">
@@ -93,9 +105,18 @@ const Register = () => {
                             <button className="border border-white text-white rounded-lg p-3 font-title ">Register</button>
                         </div>
 
+                        {/* Google login button */}
+                        <div className="form-control mt-6 p-0">
+                            <button onClick={handleGoogleLogin} className="border border-white text-white rounded-lg p-3 font-title">
+                                <span className='text-xl flex justify-center items-center'>
+                                    <FaGoogle />
+                                </span>
+                            </button>
+                        </div>
+
                         <label className="label text-white font-title">
                             Have an account?{" "}
-                            <Link to="/login" className="label-text-alt link link-hover text-white ">
+                            <Link to="/login" className="label-text-alt link link-hover text-white">
                                 Please Login
                             </Link>
                         </label>
