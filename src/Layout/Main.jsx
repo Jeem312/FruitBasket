@@ -6,7 +6,7 @@ import Navbar from '../Shared/Navbar';
 
 const Main = () => {
     return (
-        <div className="bg-gradient-to-r from-[rgb(42,56,88)] to-[rgb(102,109,132)] h-screen p-4 md:p-14 rounded-lg flex flex-col">
+        <div className="bg-gradient-to-r from-[rgb(42,56,88)] to-[rgb(102,109,132)] min-h-screen p-4 md:p-14 rounded-lg flex flex-col">
             {/* Background Image with Opacity */}
             <div
                 className="relative container mx-auto flex-grow rounded-lg"
@@ -25,7 +25,7 @@ const Main = () => {
                 {/* Content */}
                 <div className="relative z-10">
                     <Navbar />
-                    <div className="p-5 rounded-lg mt-5">
+                    <div className="p-5 rounded-lg">
                         <Outlet />
                     </div>
                 </div>
