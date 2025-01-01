@@ -5,6 +5,9 @@ import Buttons from './Buttons';
 import { Link } from 'react-router-dom';
 const Navbar = () => {
     const {user,logOut}= useContext(AuthContext);
+    const handleLogOut = () =>{
+      logOut()
+    }
     return (
         <div className='border border-t-0 border-x-0 border-white rounded-lg'>
          <div className="navbar ">
@@ -28,7 +31,7 @@ const Navbar = () => {
     
       <li><a>Display Name</a></li>
       <li><a>LeaderBoard</a></li>
-      <li><a>Logout</a></li>
+      <li><button onClick={handleLogOut}>LogOut</button></li>
     </ul>
   </div> : <Link to={'/login'}><Buttons text={"Login"}></Buttons></Link>
   }
