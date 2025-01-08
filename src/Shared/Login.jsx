@@ -101,7 +101,7 @@ const Login = () => {
                         <label className="label text-white font-title">
                             Have an account?{" "}
                             <Link to="/login" className="label-text-alt link link-hover text-white">
-                                Please Login
+                                Please Register
                             </Link>
                         </label>
                     </div>
