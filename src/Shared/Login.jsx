@@ -48,7 +48,7 @@ const Login = () => {
     return (
         <div className=''>
             <h1 className='flex justify-center items-center font-bold text-3xl text-white font-title '>
-                Register Now
+                Login Now
             </h1>
 
             <div className="flex flex-col justify-center items-center my-2">
